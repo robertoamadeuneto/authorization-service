@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: authorization-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+             - Path=/authentication
+          filters:
+            - RewritePath=/authentication, /v1/users/authentication

@@ -1,0 +1,2 @@
+[![Build Status](https://travis-ci.org/robertoamadeuneto/authorization-service.svg?branch=master)](https://travis-ci.org/robertoamadeuneto/authorization-service)
+[![codecov](https://codecov.io/gh/robertoamadeuneto/authorization-service/branch/master/graph/badge.svg)](https://codecov.io/gh/robertoamadeuneto/authorization-service)
