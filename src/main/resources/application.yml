@@ -7,9 +7,22 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: user-service
+        - id: Registration
           uri: lb://user-service
           predicates:
-             - Path=/authentication
+            - Path=/registration
           filters:
+            - RewritePath=/registration, /v1/users
+        - id: Authentication
+          uri: lb://user-service
+          predicates:
+            - Path=/authentication
+          filters:
+            - AuthenticationFilter
             - RewritePath=/authentication, /v1/users/authentication
+        - id: Authorization
+          uri: lb://user-service
+          predicates:
+            - Path=/authentication
+          filters:
+            - AuthorizationFilter
